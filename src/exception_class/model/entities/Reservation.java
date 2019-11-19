@@ -50,8 +50,8 @@ public class Reservation {
 	public String toString() {
 		return "Reservation [roomNumber=" + roomNumber + ", " + "checkIn=" 
 										  + simpleDateFormat.format(checkIn) + ", checkoOut=" 
-										  + simpleDateFormat.format(checkoOut) + 
-										  + duration() + ", nights.]";
+										  + simpleDateFormat.format(checkoOut) + ", "
+										  + Long.toString(duration()) + " nights.]";
 	}
 	
 
