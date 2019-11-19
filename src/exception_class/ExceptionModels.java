@@ -1,5 +1,7 @@
 package exception_class;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -10,7 +12,8 @@ public class ExceptionModels {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		System.out.println(mark("Start program"));
-		methodTest0();
+		// methodTest0();
+		uploadFile("/home/marola/eclipse-workspace/exception_class/_arquivoteste.txt");
 		
 		System.out.println(mark("End program"));
 
@@ -40,9 +43,29 @@ public class ExceptionModels {
 			// printStackTrace imprime a pilha de chamados de métodos
 			e.printStackTrace();
 			scanner.next();
+		} finally {
+			// ocorrendo o erro ou não passa nesta parte do bloco
+			System.out.println(mark("end - methodTest1"));
 		}
-		System.out.println(mark("end - methodTest1"));
 		scanner.close();	
+	}
+	
+	private static void uploadFile(String pathFile) {
+		File file = new File(pathFile);
+		Scanner scanner = null;
+		try {
+			scanner = new Scanner(file);
+			while (scanner.hasNextLine()) {
+				System.out.println(scanner.nextLine());
+			}
+		} catch (FileNotFoundException e) {
+			System.out.println("Erro ao abrir o arquivo: " + e.getMessage());
+		} finally {
+			if (scanner != null) {
+				scanner.close();
+				System.out.println("Arquivo fechado");
+			}
+		}
 	}
 	
 	private static String mark(String text) {
