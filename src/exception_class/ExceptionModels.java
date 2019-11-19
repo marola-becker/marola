@@ -5,7 +5,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 
-
 import exception_class.model.entities.Reservation;
 import exception_class.others.TestsExceptions;
 
@@ -42,26 +41,14 @@ public class ExceptionModels {
 			System.out.println("Check-in date (dd/MM/yyyy):");
 			checkIn = simpleDateFormat.parse(scanner.next());
 			System.out.println("Check-out date (dd/MM/yyyy):");
-			checkOut = simpleDateFormat.parse(scanner.next());	
-			Date now = new Date();
-			if(checkIn.before(now) || (checkOut.before(now))) {
-				System.out.println("As datas de reserva deverão ser futuras!");
-			} else {
-				if (!checkOut.after(checkIn)) {
-					System.out.println(
-							"Erro de reserva:" +
-							"A data do check-out não pode ser inferior a do check-in!");
-				} else {
-					reservation.updateDates(checkIn, checkOut);
-					System.out.println(reservation);
-				}
+			checkOut = simpleDateFormat.parse(scanner.next());
+			String error = reservation.updateDates(checkIn, checkOut);
+			if(error != null) {
+				System.out.println(error);
+			} else
+				System.out.println(reservation);				
 			}
-		}
-		
-		
 		System.out.println(TestsExceptions.mark("End program"));
-	}
-	
-
+		}
 
 }
