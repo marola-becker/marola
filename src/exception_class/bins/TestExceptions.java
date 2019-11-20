@@ -1,11 +1,11 @@
-package exception_class.others;
+package exception_class.bins;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class TestsExceptions {
+public class TestExceptions {
 	public static void methodTest0() {
 		System.out.println(mark("start - methodTest0"));
 		methodTest1();
