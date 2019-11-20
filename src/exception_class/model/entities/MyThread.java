@@ -14,7 +14,7 @@ public class MyThread extends Thread {
 	@Override
 	public void run() {
 		try {
-			for (int i=0; i<6-1; i++) {
+			for (int i=0; i<4-1; i++) {
 				System.out.println(getMyThreadName() + " -> " + i);
 				sleep(this.timeSleep);
 			}

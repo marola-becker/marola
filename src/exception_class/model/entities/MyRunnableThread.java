@@ -18,7 +18,7 @@ public class MyRunnableThread implements Runnable {
 	public void run() {
 		String name = this.getNameThread();
 		try {
-			for(int i=0; i<=5; i++) {
+			for(int i=0; i<=2; i++) {
 				System.out.println(getNameThread() + " -> " + i);
 				Thread.sleep(timeSleep);
 			}
