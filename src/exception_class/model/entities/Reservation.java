@@ -4,6 +4,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
+import exception_class.model.exceptions.DomainException;
+
 public class Reservation {
 	private Integer roomNumber;
 	private Date checkIn;
@@ -40,20 +42,18 @@ public class Reservation {
 
 	}
 
-	public String updateDates(Date checkIn, Date checkOut) {
+	public void updateDates(Date checkIn, Date checkOut) throws DomainException{
 		
 		Date now = new Date();
 		if(checkIn.before(now) || (checkOut.before(now))) {
-			return "As datas de reserva deverão ser futuras!";
+			throw new DomainException("As datas de reserva deverão ser futuras!");
 		} 
 		if (!checkOut.after(checkIn)) {				
-		   return	"Erro de reserva:" +
-					"A data do check-out não pode ser inferior a do check-in!";
-		} else {	
-				this.checkIn = checkIn;
-				this.checkoOut = checkOut;
-				return null;
-		}
+			throw new DomainException("Erro de reserva:" +
+					"A data do check-out não pode ser inferior a do check-in!");
+		} 
+		this.checkIn = checkIn;
+		this.checkoOut = checkOut;		
 	}
 
 	@Override
