@@ -4,7 +4,7 @@ import exception_class.model.entities.MyThreadSum;
 
 public class TesteThreadsSenchronized {
 
-	public static void main(String[] args) {
+	public static void testCalculationSynchronized(String[] args) {
 		
 		int[] nums = {1,2,3};
 		MyThreadSum th1 = new MyThreadSum("thr#1", nums);
