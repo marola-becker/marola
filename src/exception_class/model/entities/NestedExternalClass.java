@@ -20,5 +20,12 @@ public class NestedExternalClass {
 		
 	}
 	
+	/** classe INTERNA ESTATICA */
+	public static class InternalOtherClass{
+		private String VALOR = "CLASSE ESTÁTICA INTERNA";
+		public InternalOtherClass() { }
+		public String getVALOR() { return this.VALOR; }		
+	}
+	
 	public String getName() { return this.name; }
 }
